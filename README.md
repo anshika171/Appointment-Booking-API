@@ -148,9 +148,6 @@ Example:
 
 ---
 
-## Author
-
-Anshika Singh
 
 
 
