@@ -1,0 +1,39 @@
+using AppointmentApi.Data;
+using AppointmentApi.Models;
+using AppointmentApi.Services.Interfaces;
+
+namespace AppointmentApi.Services.Implementations
+{
+    public class AppointmentService : IAppointmentService
+    {
+        private readonly AppDbContext _context;
+
+        public AppointmentService(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public string BookAppointment(Appointment appointment)
+        {
+            // 🔥 Prevent double booking
+            bool exists = _context.Appointments.Any(a =>
+                a.Date == appointment.Date &&
+                a.TimeSlot == appointment.TimeSlot);
+
+            if (exists)
+            {
+                return "Slot already booked";
+            }
+
+            _context.Appointments.Add(appointment);
+            _context.SaveChanges();
+
+            return "Appointment booked successfully";
+        }
+
+        public List<Appointment> GetAll()
+        {
+            return _context.Appointments.ToList();
+        }
+    }
+}
