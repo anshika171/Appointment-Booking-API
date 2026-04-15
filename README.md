@@ -1,6 +1,6 @@
 # Appointment Booking API
 
-A backend API built with .NET 8 for managing appointments with authentication and a layered architecture.
+A backend API built with .NET 10 for managing appointments with authentication and a layered architecture.
 
 ---
 
@@ -18,7 +18,7 @@ A backend API built with .NET 8 for managing appointments with authentication an
 
 ## Tech Stack
 
-* .NET 8 Web API
+* .NET 10 Web API
 * Entity Framework Core
 * SQL Server (Docker)
 * JWT Authentication
@@ -51,7 +51,7 @@ Appointment_Booking_Api/
 
 ### Clone repository
 
-```
+```bash
 git clone https://github.com/anshika171/Appointment-Booking-API.git
 cd Appointment-Booking-API
 ```
@@ -60,7 +60,7 @@ cd Appointment-Booking-API
 
 ### Run SQL Server (Docker)
 
-```
+```bash
 docker run -e "ACCEPT_EULA=Y" \
 -e "SA_PASSWORD=StrongPass@123" \
 -p 1433:1433 \
@@ -72,7 +72,7 @@ docker run -e "ACCEPT_EULA=Y" \
 
 ### Apply migrations
 
-```
+```bash
 dotnet ef database update
 ```
 
@@ -80,7 +80,7 @@ dotnet ef database update
 
 ### Run API
 
-```
+```bash
 dotnet run
 ```
 
@@ -96,7 +96,7 @@ POST /api/Auth/login
 
 Example request:
 
-```
+```json
 {
   "username": "admin",
   "password": "1234"
@@ -147,5 +147,10 @@ Example:
 ```
 
 ---
+
+## Author
+
+Anshika Singh
+
 
 
